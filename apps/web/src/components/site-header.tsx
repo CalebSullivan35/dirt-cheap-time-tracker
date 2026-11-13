@@ -1,5 +1,7 @@
 import { OrganizationSwitcher, Show, UserButton } from "@clerk/nextjs";
+import Link from "next/link";
 import { Suspense } from "react";
+import { Button } from "./ui/button";
 import { Logo } from "./logo";
 import { NavLinks } from "./nav-links";
 import { ThemeToggle } from "./theme-toggle";
@@ -26,6 +28,14 @@ export function SiteHeader() {
                 />
               </div>
               <UserButton />
+            </Show>
+            <Show when="signed-out">
+              <Button asChild size="sm" variant="ghost">
+                <Link href="/sign-in">Sign in</Link>
+              </Button>
+              <Button asChild size="sm">
+                <Link href="/sign-up">Sign up</Link>
+              </Button>
             </Show>
           </Suspense>
         </div>
