@@ -9,3 +9,4 @@ pnpm + Turborepo monorepo. See README.md for the layout and setup.
 - Expo: add packages with `npx expo install` so versions match the SDK. The mobile app must keep working in Expo Go, so no custom native modules.
 - Shared input validation goes in `packages/validators`; both apps and the API import it.
 - Test: `pnpm typecheck`, `pnpm test` (with `TEST_DATABASE_URL` set to a migrated Postgres to run the API tests).
+- Web UI: shadcn/ui (new-york, neutral base) in `apps/web/src/components/ui`, theme tokens in `globals.css`. Brand accent is emerald (`--primary`/`--brand`); the Expo app mirrors it in `apps/mobile/src/lib/theme.ts`. Light/dark via `next-themes` (class on `<html>`); Clerk widgets use `@clerk/ui/themes` `shadcn`. Animations use `motion` (`motion/react`) and must stay small; `MotionConfig reducedMotion="user"` is set globally.

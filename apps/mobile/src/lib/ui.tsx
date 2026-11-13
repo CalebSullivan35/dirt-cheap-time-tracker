@@ -23,7 +23,7 @@ export function Button({
 }) {
   const t = useTheme();
   const bg = variant === "primary" ? t.accent : variant === "danger" ? t.danger : "transparent";
-  const fg = variant === "ghost" ? t.accent : t.onAccent;
+  const fg = variant === "ghost" ? t.accent : variant === "danger" ? "#ffffff" : t.onAccent;
   return (
     <Pressable
       accessibilityRole="button"
